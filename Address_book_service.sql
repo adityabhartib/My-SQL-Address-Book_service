@@ -3,14 +3,14 @@ use Address_Book_service;
 show tables;
 create table contacts (
 id int auto_increment,
-first_name varchar(300),
-last_name varchar(300),
-address varchar(200),
-city varchar(300),
-state varchar(200),
-zip varchar(200),
-phone_Number varchar(100),
-email_Id varchar(600),
+first_name varchar(10),
+last_name varchar(10),
+address varchar(10),
+city varchar(10),
+state varchar(10),
+zip varchar(10),
+phone_Number varchar(12),
+email_Id varchar(30),
 Primary key(id)
 );
 
@@ -47,21 +47,19 @@ select * from contacts where first_name like 'a__%';
 
 create table contact_type(
 contact_id int auto_increment,
-contact_type varchar(200),
-primary key(contact_id),
+contact_type varchar(20),
+primary key(id),
 foreign key (contact_id) references contacts(id));
 
 select * from contact_type;
 
 select * from contacts;
 
-insert into contact_type(contact_type,id) values('firend',1);
+insert into contact_type(contact_type,contact_id) values('firend',1),('friend',2),('family',4);
 
-select c.id,c.first_name,c.last_name,c.address,c.city,c.state,c.phoneNumber,c.emailId
-from contact as c inner join contact_type as ct
-on c.id=ct.contact_id;
+Select c.id,c.first_name,c.last_name,c.address,c.city,c.state,c.zip,c.phone_Number,c.email_Id,ct.contact_type from contacts as c right join contact_type as ct
+on c.id = ct.contact_id;
 
-select * from contact_type;
 
 
 
