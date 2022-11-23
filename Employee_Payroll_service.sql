@@ -66,7 +66,14 @@ inner join salary_details as es
 inner join employee_department as ed
 on e.EmployeeID = es.salary_id and es.salary_id = ed.emp_department_id;
 
-UPDATE employee_details set EmployeeName =
-'Mohan' where department_id = 'Akash' or ;
+update employee_details set EmployeeName ='Aditya' where EmployeeID =6;
+
+select min(NetPay) from salary_details where NetPay>25000;
+
+select max(NetPay) from salary_details where NetPay>35000;
+
+select avg(NetPay) from salary_details where NetPay;
+
+select sum(NetPay) from salary_details where NetPay;
 
 select * from employee_details;
